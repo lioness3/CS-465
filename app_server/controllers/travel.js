@@ -1,5 +1,6 @@
 
 // read trip data from JSON file and pass to handlebars
+// MODULE 3 
 var fs = require('fs');
 var trips = JSON.parse(fs.readFileSync('./data/trips.json',
 'utf8'));
