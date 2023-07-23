@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "hbs": "^4.2.0",
-    "seedgoose":"^2.0.2"
+    "seedgoose": "^2.0.2"
   }
 }

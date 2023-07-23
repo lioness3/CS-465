@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const host = process.env.DB_HOST || '127.0.0.1:27017' 
-const dbURI = `mongodb://${host}/travlr`;   
-//const dbURI = "mongodb://0.0.0.0:27017/travlr"; 
-const readLine = require ('readline');
+const host = process.env.DB_HOST || '127.0.0.1:27017' ;
+//const dbURI = `mongodb://${host}/travlr`;   
+ß/'const dbURI = "mongodb://0.0.0.0:27017/travlr"; 
+//const readLine = require ('readline');
 
 
 // avoid depreciation server warning
-mongoose.set('useUnifiedTopology', true);
+mongoose.set({useUnifiedTopology: true});
   const connect = ()=>{
       setTimeout(() => mongoose.connect(dbURI, {
           useNewUrlParser: true, 
