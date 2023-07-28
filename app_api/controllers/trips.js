@@ -1,8 +1,8 @@
-const mongoose = require ('mongoose'); //.set('debug', true);
-const Model = mongoose. model('trips'); 
+const mongoose = require('mongoose'); //.set('debug', true);
+const Model = mongoose.model('trips'); 
 
 // GET: /trips - lists all the trips 
-const tripslist = async (reg, res) => {
+const tripsList = async (reg, res) => {
     Model
         .find ({}) // empty filter for all 
         .exec((err, trips) => { 
@@ -23,7 +23,7 @@ const tripslist = async (reg, res) => {
 };
 
 // GET: /trips/:tripCode - returns a single trip
-const tripsFindByCode = async (req, res) => {
+const tripsFindCode = async (req, res) => {
     Model 
         .find({ 'code': req.params.tripCode })
         .exec((err, trip) => {
@@ -43,6 +43,6 @@ const tripsFindByCode = async (req, res) => {
         });
  };
  module.exports = {
-    tripslist,
-    tripsFindByCode
+    tripsList,
+    tripsFindCode
  };

@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs'); // https://www.npmjs.com/package/hbs
-require('./app_api/models/db'); // trigger DB connection and mngoose schema models to be loaded
+require('./app_api/database/db'); // trigger DB connection and mngoose schema models to be loaded
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 const travelRouter = require('./app_server/routes/travel');
