@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs'); // https://www.npmjs.com/package/hbs
-
+require('./app_api/models/db'); // trigger DB connection and mngoose schema models to be loaded
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 const travelRouter = require('./app_server/routes/travel');
+const apiRouter = require('./app_api/routes/index'); //refrence app_api router 
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
+app.use('/api', apiRouter); //send requests for '/api' to the api router
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
