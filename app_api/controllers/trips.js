@@ -42,7 +42,35 @@ const tripsFindCode = async (req, res) => {
             }
         });
  };
+
+ const tripsAddTrip = async (req, res) => {
+    Model
+    .create({
+        code: req.body.code, 
+        name: req.body.name, 
+        length: req.body.length,
+        start: req.body.start, 
+        resort: req.body.resort, 
+        perPerson: req.body.perPerson, 
+        image: req.body.image,
+        description1: req.body.description1,
+        description2: req.body.description2
+
+    },
+    (err, trip) => {
+        if(err){
+            return res 
+                .status(400) // bad request 
+                .json(err);
+        }else{
+            return res 
+                .status(201)   //created 
+                .json(trip)
+        }
+    });
+ }
  module.exports = {
     tripsList,
-    tripsFindCode
+    tripsFindCode,
+    tripsAddTrip
  };
