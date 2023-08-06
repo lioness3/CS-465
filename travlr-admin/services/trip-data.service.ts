@@ -15,18 +15,20 @@ export class TripDataService {
     public addTrip(formData: Trip): Promise<Trip> {
       console.log('Inside TripDataService#addTrips');
       return this.http
-          .post(this.tripUrl, formData)
+          .post(`${this.apiBaseUrl}trips/`, formData)
           .toPromise()
           .then(response => response as Trip[])
           .catch(this.handleError);
     }
 
   public getTrips(): Promise<Trip[]> {
-    console.log('Inside TripDataService#getTrips');
+    console.log('Inside TripDataService#getTrips ', this.http);
     return this.http
-        .get(this.tripUrl)
+        .get(`${this.apiBaseUrl}trips/`)
         .toPromise()
-        .then(response => response as Trip[])
+        .then(response => 
+          response as Trip[]
+          )
         .catch(this.handleError);
   }
 
@@ -35,7 +37,7 @@ export class TripDataService {
   public getTrip(tripCode: string): Promise<Trip> {
     console.log('Inside TripDataService#getTrip(tripCode)');
     return this.http
-      .get(this.tripUrl + tripCode)
+      .get(`${this.apiBaseUrl}trips/` + tripCode)
       .toPromise()
       .then(response => response as Trip[])
       .catch(this.handleError);
@@ -45,7 +47,7 @@ export class TripDataService {
     console.log('Inside TripDataService#upateTrip');
     console.log(formData);
       return this.http
-        .put(this.tripUrl + formData.code, formData)
+        .put(`${this.apiBaseUrl}trips/` + formData.code, formData)
         .toPromise()
         .then(response => response as Trip[])
         .catch(this.handleError);
