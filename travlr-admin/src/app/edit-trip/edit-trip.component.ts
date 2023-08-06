@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-trip',
+  selector: 'travlr-edit-trip',
   templateUrl: './edit-trip.component.html',
   styleUrls: ['./edit-trip.component.css']
 })
