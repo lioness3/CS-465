@@ -3,8 +3,8 @@ var router = express.Router();
 const jwt = require('express.jwt');
 const auth = jwt({
     secret: process.env.JWT_SECRET,
-    userProperty: "payload",
-    algorithms: ["HS256"],
+    userProperty: 'payload',
+    algorithms: ['HS256'],
   });
 
 const authController = require('../controllers/authentication')
@@ -18,16 +18,16 @@ router
     .route('/register')
     .post(authController.register);
 
-/* GET trips list. */
+/* trips list. */
 router
     .route('/trips')
     .get(tripsController.tripsList)
-    .post(tripsController.tripsAddTrip);  // route post request 
+    .post(auth, tripsController.tripsAddTrip);  // route post request 
 
-    /* GET single trip. */
+    /*single trip. */
 router
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindCode)
-    .put(tripsController.tripsUpdateTrip);
+    .put(auth, tripsController.tripsUpdateTrip);
 
 module.exports = router;
