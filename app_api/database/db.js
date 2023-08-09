@@ -59,3 +59,4 @@ process.on('SIGTERM', () => {
 connect();
 
 require('../../app_server/models/travlr');
+require('./models/user');
