@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
-import { BROWSER_STORAGE } from '../storage';
-import { User } from '../models/user';
-import { AuthResponse } from '../models/authresponse';
+import { BROWSER_STORAGE } from '../src/app/storage';
+import { User } from '../src/app/models/user';
+import { AuthResponse } from '../src/app/models/authresponse';
 import { TripDataService } from 'services/trip-data.service';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class AuthenticationService {
     @Inject(BROWSER_STORAGE) private storage: Storage,
     private tripDataService: TripDataService
  ) { }
+ 
  public getToken(): string {
    return this.storage.getItem('travlr-token');
  }
