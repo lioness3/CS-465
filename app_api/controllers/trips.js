@@ -97,6 +97,38 @@ const tripsFindCode = async (req, res) => {
         }   
     );
 }
+//delete trip
+const tripsDeleteTrip = async (req, res) => {
+    getUser(req, res, 
+        (req, res) => {
+            const {tripCode} = req.params.tripCode;
+            //if trip found
+            if(tripCode){
+                Trip
+                .findOneAndDelete(tripCode)
+                .exec((err,trip) =>{
+                    if(err){
+                        return res
+                            .status(404)
+                            .json(err);            
+                    }
+                    res
+                        .status(204)
+                        .json(null);
+                    }
+                );
+            }else{
+                res
+                    .status(404)
+                    .json({
+                        "message": "No Trip"
+                });
+            }
+        }
+    )};
+            
+    
+   
  const tripsUpdateTrip = async (req, res) => {
     getUser(req, res, 
         (req, res) => {
@@ -140,5 +172,6 @@ const tripsFindCode = async (req, res) => {
     tripsList,
     tripsFindCode,
     tripsAddTrip,
+    tripsDeleteTrip,
     tripsUpdateTrip
  };

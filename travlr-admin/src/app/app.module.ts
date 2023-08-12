@@ -13,6 +13,7 @@ import { EditTripComponent } from './edit-trip/edit-trip.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { DeleteTripComponent } from './delete-trip/delete-trip.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     EditTripComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    DeleteTripComponent
   ],
   imports: [
     BrowserModule, 

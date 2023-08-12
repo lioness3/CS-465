@@ -46,6 +46,14 @@ export class TripDataService {
       .then(response => response as Trip[])
       .catch(this.handleError);
    }
+     // returns single trip 
+  public deleteTrip(tripCode: string){
+    console.log('Inside TripDataService#deleteTrip(tripCode)');
+    return this.http
+      .delete(tripCode)
+      .toPromise()
+      .catch(this.handleError);
+   }
    // passes entire form data 
    public updateTrip(formData: Trip): Promise<Trip> {
     console.log('Inside TripDataService#upateTrip');

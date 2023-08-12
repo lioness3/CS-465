@@ -8,7 +8,8 @@
         <p class="card-text" [innerHTML]="trip.description1"></p>
         <p class="card-text" [innerHTML]="trip.description2"></p>
         <div *ngIf="isLoggedIn()">
-          <button (click)="editTrip(trip)" class = "btn btn-info">Edit</button>
+          <button (click)="editTrip(trip)" class = "btn btn-info btn-sm btn-block">Edit</button>
+          <button (click)="deleteTrip(trip)"class = "btn btn-danger btn-sm btn-block" >DELETE</button>
         </div>
    </div>
 </div>
