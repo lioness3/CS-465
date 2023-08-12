@@ -1,6 +1,8 @@
 <h4>
 Are you sure you want to delete:
 </h4>
-<p>{{trip.name}}</p>
-<button (click)="confirmDelete(value)" value="deleteTrip">YES</button>
+
+<p>{{tripName}}</p>
+<button (ng-click)="confirmDelete('deleteTrip')" >YES</button>
 <button (click)="confirmDelete(value)" value="keep">NO</button>
+<div *ngIf=""></div>

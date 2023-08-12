@@ -11,6 +11,7 @@ import { Trip } from 'models/Trip';
 export class DeleteTripComponent implements OnInit {
   @Input('trip') trip: any;
   confirmed = false;
+  tripName: String;
   constructor(
     private router: Router,
     private tripService: TripDataService
@@ -23,11 +24,18 @@ export class DeleteTripComponent implements OnInit {
              alert("Something wrong, couldn't find where I stashed tripCode!");
             this.router.navigate(['']);
             return;
+          } else{
+            this.tripService.getTrip(tripCode)
+            .then(data => {
+              console.log(data[0].name, '  data value from trip code');
+              this.tripName = data[0].name;
+            })
           }
 
        
   }
 confirmDelete(value){
+
   console.log(value)
 //  if(Button.value === 'deleteTrip'){
 //   alert('item deleted!')
