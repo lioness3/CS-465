@@ -50,7 +50,7 @@ export class TripDataService {
   public deleteTrip(tripCode: string){
     console.log('Inside TripDataService#deleteTrip(tripCode)');
     return this.http
-      .delete(tripCode)
+      .delete(`${this.apiBaseUrl}trips/` + tripCode)
       .toPromise()
       .catch(this.handleError);
    }
