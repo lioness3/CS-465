@@ -1,1 +1,6 @@
-<div class="container" *ngIf="!isLoggedIn()">Please login to continue</div>
+<div class="container" *ngIf="!isLoggedIn()">
+    <h6>Please login to continue</h6>
+</div> 
+<div class="container" *ngIf="isLoggedIn()">
+   <h6> Click 'Trips' to view and edit the Trips List</h6>
+</div>
